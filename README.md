@@ -2,6 +2,13 @@
 
 Simple component for icons in your React app.
 
+Installation
+------------
+
+```
+npm install react-icon
+```
+
 Usage
 -----
 
