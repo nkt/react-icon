@@ -1,0 +1,33 @@
+*:focus {
+  outline: none;
+}
+
+body {
+  background: #2c3643;
+}
+
+code {
+  font: 20px "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
+  color: #fff;
+}
+
+code.tag {
+  color: #fa5e5b;
+  text-decoration: underline;
+}
+
+code.attr {
+  color: #ffc83f;
+}
+
+.demo-container {
+  margin: 25% auto;
+  text-align: center;
+}
+
+.icon-container {
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+  color: rgba(255, 255, 255, .8)
+}
