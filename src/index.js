@@ -9,15 +9,10 @@ const Icon = React.createClass({
   },
   propTypes: {
     glyph: React.PropTypes.string.isRequired,
-    classPrefix: React.PropTypes.string.isRequired
-  },
-  getDefaultProps() {
-    return {
-      classPrefix: Icon.defaultFontPrefix
-    };
+    classPrefix: React.PropTypes.string
   },
   render() {
-    const prefix = this.props.classPrefix;
+    const prefix = this.props.classPrefix || Icon.defaultFontPrefix;
     let className = `${prefix} ${prefix}-${this.props.glyph}`;
     if (this.props.className) {
       className += ` ${this.props.className}`;
