@@ -1,11 +1,15 @@
 import React from 'react/addons';
 import Icon from 'react-icon';
 
+function trim(str) {
+  return str.replace(/^\s+|\s+$/g, '');
+}
+
 const DemoApp = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState() {
     return {
-      glyph: 'star'
+      glyph: 'github'
     };
   },
   componentDidMount() {
@@ -13,8 +17,13 @@ const DemoApp = React.createClass({
   },
   onGlyphChange(e) {
     this.setState({
-      glyph: e.target.innerText
+      glyph: trim(e.target.innerText)
     });
+  },
+  onGlyphBlur(e) {
+    if (!e.target.innerText) {
+      this.setState(this.getInitialState());
+    }
   },
   render() {
     return (
@@ -27,6 +36,7 @@ const DemoApp = React.createClass({
         <code
           ref="glyphInput"
           onInput={this.onGlyphChange}
+          onBlur={this.onGlyphBlur}
           dangerouslySetInnerHTML={{__html: this.state.glyph}}
           contentEditable
         />
