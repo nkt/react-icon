@@ -4,6 +4,7 @@
   "description": "Icon component for React",
   "keywords": [
     "react",
+    "react-component",
     "icon",
     "glyph"
   ],
