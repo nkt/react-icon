@@ -5,18 +5,35 @@ function trim(str) {
   return str.replace(/^\s+|\s+$/g, '');
 }
 
+const icons = ['github', 'star', 'copy', 'user', 'heart', 'comments', 'bell', 'car', 'coffee'];
+
+function getIcon() {
+  const random = Math.random() * 1000 | 0;
+
+  return icons[random % (icons.length - 1)];
+}
+
 const DemoApp = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState() {
     return {
-      glyph: 'github'
+      glyph: getIcon(),
+      isStartTyping: false
     };
   },
   componentDidMount() {
     this.refs.glyphInput.getDOMNode().focus();
+    let intervalId = setInterval(() => {
+      if (this.state.isStartTyping) {
+        clearInterval(intervalId);
+      } else {
+        this.setState(this.getInitialState());
+      }
+    }, 5000);
   },
   onGlyphChange(e) {
     this.setState({
+      isStartTyping: true,
       glyph: trim(e.target.innerText)
     });
   },

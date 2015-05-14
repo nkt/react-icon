@@ -141,7 +141,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(7)();
-	exports.push([module.id, "*:focus {\n  outline: none;\n}\n\nbody {\n  background: #2c3643;\n}\n\ncode {\n  font: 20px \"Consolas\", \"Liberation Mono\", \"Menlo\", \"Courier\", monospace;\n  color: #fff;\n}\n\ncode.tag {\n  color: #fa5e5b;\n  text-decoration: underline;\n}\n\ncode.attr {\n  color: #ffc83f;\n}\n\n.demo-container {\n  margin: 25% auto;\n  text-align: center;\n}\n\n.icon-container {\n  margin: 10px;\n  text-align: center;\n  font-size: 30px;\n  color: rgba(255, 255, 255, .8)\n}\n", ""]);
+	exports.push([module.id, "*:focus {\n  outline: none;\n}\n\nbody {\n  background: #2c3643;\n  color: #fff;\n}\n\ncode {\n  font: 20px \"Consolas\", \"Liberation Mono\", \"Menlo\", \"Courier\", monospace;\n  color: #fff;\n}\n\ncode.tag {\n  color: #fa5e5b;\n  text-decoration: underline;\n}\n\ncode.attr {\n  color: #ffc83f;\n}\n\ncode.string {\n  color: #16c98d;\n}\n\ncode.comment {\n  color: #99a9b3;\n}\n\n.demo-container {\n  margin: 25% auto;\n  text-align: center;\n}\n\n.icon-container {\n  text-shadow: 1px 1px #fff;\n  margin: 10px;\n  text-align: center;\n  font-size: 50px;\n  color: rgba(255, 255, 255, .8)\n}\n", ""]);
 
 /***/ },
 /* 4 */
@@ -468,12 +468,11 @@
 	      className += ' ' + this.props.className;
 	    }
 
-	    return React.createElement('span', _extends({ className: className }, this.props));
+	    return React.createElement('span', _extends({ className: className }, props));
 	  }
 	});
 
 	module.exports = Icon;
-
 
 /***/ },
 /* 9 */
@@ -15094,20 +15093,39 @@
 	  return str.replace(/^\s+|\s+$/g, '');
 	}
 
+	var icons = ['github', 'star', 'copy', 'user', 'heart', 'comments', 'bell', 'car', 'coffee'];
+
+	function getIcon() {
+	  var random = Math.random() * 1000 | 0;
+
+	  return icons[random % (icons.length - 1)];
+	}
+
 	var DemoApp = _reactAddons2['default'].createClass({
 	  displayName: 'DemoApp',
 
 	  mixins: [_reactAddons2['default'].addons.LinkedStateMixin],
 	  getInitialState: function getInitialState() {
 	    return {
-	      glyph: 'github'
+	      glyph: getIcon(),
+	      isStartTyping: false
 	    };
 	  },
 	  componentDidMount: function componentDidMount() {
+	    var _this = this;
+
 	    this.refs.glyphInput.getDOMNode().focus();
+	    var intervalId = setInterval(function () {
+	      if (_this.state.isStartTyping) {
+	        clearInterval(intervalId);
+	      } else {
+	        _this.setState(_this.getInitialState());
+	      }
+	    }, 5000);
 	  },
 	  onGlyphChange: function onGlyphChange(e) {
 	    this.setState({
+	      isStartTyping: true,
 	      glyph: trim(e.target.innerText)
 	    });
 	  },
@@ -15118,8 +15136,17 @@
 	  },
 	  render: function render() {
 	    return _reactAddons2['default'].createElement(
-	      'main',
+	      'div',
 	      { className: 'demo-container' },
+	      _reactAddons2['default'].createElement(
+	        'div',
+	        null,
+	        _reactAddons2['default'].createElement(
+	          'code',
+	          { className: 'comment' },
+	          '//  enter your favorite icon'
+	        )
+	      ),
 	      _reactAddons2['default'].createElement(
 	        'code',
 	        null,
@@ -15146,6 +15173,7 @@
 	        '="'
 	      ),
 	      _reactAddons2['default'].createElement('code', {
+	        className: 'string',
 	        ref: 'glyphInput',
 	        onInput: this.onGlyphChange,
 	        onBlur: this.onGlyphBlur,
