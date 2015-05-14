@@ -34,7 +34,7 @@ This behavior customizable:
 ```js
 var Icon = require('react-icon');
 
-Icon.setDefaultClassPrefix('glyphicon') // glyphicon glyphicon-star
+Icon.setDefaultFontPrefix('glyphicon') // glyphicon glyphicon-star
 ```
 
 License
