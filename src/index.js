@@ -18,7 +18,7 @@ const Icon = React.createClass({
       className += ` ${this.props.className}`;
     }
 
-    return <span className={className} {...props}></span>;
+    return <span className={className} {...this.props}></span>;
   }
 });
 
