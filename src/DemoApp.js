@@ -27,13 +27,17 @@ const DemoApp = React.createClass({
   },
   render() {
     return (
-      <main className="demo-container">
+      <div className="demo-container">
+        <div>
+          <code className="comment">{'//  enter your favorite icon'}</code>
+        </div>
         <code>{'<'}</code>
         <code className="tag">{'Icon'}</code>
         <code>{' '}</code>
         <code className="attr">{'glyph'}</code>
         <code>{'="'}</code>
         <code
+          className="string"
           ref="glyphInput"
           onInput={this.onGlyphChange}
           onBlur={this.onGlyphBlur}
@@ -44,7 +48,7 @@ const DemoApp = React.createClass({
         <div className="icon-container">
           <Icon glyph={this.state.glyph} />
         </div>
-      </main>
+      </div>
     );
   }
 });

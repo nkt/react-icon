@@ -4,6 +4,7 @@
 
 body {
   background: #2c3643;
+  color: #fff;
 }
 
 code {
@@ -20,14 +21,23 @@ code.attr {
   color: #ffc83f;
 }
 
+code.string {
+  color: #16c98d;
+}
+
+code.comment {
+  color: #99a9b3;
+}
+
 .demo-container {
   margin: 25% auto;
   text-align: center;
 }
 
 .icon-container {
+  text-shadow: 1px 1px #fff;
   margin: 10px;
   text-align: center;
-  font-size: 30px;
+  font-size: 50px;
   color: rgba(255, 255, 255, .8)
 }
