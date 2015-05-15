@@ -1,4 +1,6 @@
 # React Icon
+[![Version](https://img.shields.io/npm/v/react-icon.svg)](https://www.npmjs.com/package/react-icon)
+[![Downloads](https://img.shields.io/npm/dm/react-icon.svg)](https://www.npmjs.com/package/react-icon)
 
 Simple component for icons in your React app.
 
@@ -39,4 +41,4 @@ Icon.setDefaultFontPrefix('glyphicon') // glyphicon glyphicon-star
 
 License
 -------
-MIT
+[![License](https://img.shields.io/npm/l/react-icon.svg)](LICENSE)
