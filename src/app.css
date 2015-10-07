@@ -40,3 +40,7 @@ code.comment {
   font-size: 50px;
   color: rgba(255, 255, 255, .8)
 }
+
+.github-fork-ribbon {
+  background-color: #a4a6a7;
+}

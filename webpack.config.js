@@ -1,16 +1,21 @@
+var path = require('path');
+
 module.exports = {
   entry: {
-    app: './src/app.js'
+    app: [
+      path.join(__dirname, 'src/app.js'),
+      path.join(__dirname, 'src/app.css')
+    ]
   },
   output: {
-    path: './public',
+    path: path.join(__dirname, 'public'),
     filename: '[name].js'
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel?stage=2&loose=true'],
+        loaders: ['babel'],
         exclude: /node_modules/
       },
       {
