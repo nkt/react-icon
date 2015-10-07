@@ -2,6 +2,11 @@
   outline: none;
 }
 
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   background: #2c3643;
   color: #fff;
