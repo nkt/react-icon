@@ -24,9 +24,12 @@
     "babel-runtime": "^5.3.3"
   },
   "devDependencies": {
-    "babel": "^5.3.3"
+    "babel": "^5.3.3",
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3"
   },
   "scripts": {
-    "prepublish": "babel -d lib src"
+    "prepublish": "babel -d lib src",
+    "test": "mocha"
   }
 }

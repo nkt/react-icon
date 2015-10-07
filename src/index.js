@@ -1,15 +1,17 @@
 const React = require('react');
 
 const Icon = React.createClass({
+  displayName: 'Icon',
+  propTypes: {
+    glyph: React.PropTypes.string.isRequired,
+    classPrefix: React.PropTypes.string,
+    children: React.PropTypes.node
+  },
   statics: {
     defaultFontPrefix: 'fa',
     setDefaultFontPrefix(prefix) {
       Icon.defaultFontPrefix = prefix;
     }
-  },
-  propTypes: {
-    glyph: React.PropTypes.string.isRequired,
-    classPrefix: React.PropTypes.string
   },
   render() {
     const prefix = this.props.classPrefix || Icon.defaultFontPrefix;
@@ -18,7 +20,11 @@ const Icon = React.createClass({
       className += ` ${this.props.className}`;
     }
 
-    return <span className={className} {...this.props}></span>;
+    return (
+      <span {...this.props} className={className}>
+        {this.props.children}
+      </span>
+    );
   }
 });
 
