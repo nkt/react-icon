@@ -1,6 +1,5 @@
 # React Icon
-[![Version](https://img.shields.io/npm/v/react-icon.svg)](https://www.npmjs.com/package/react-icon)
-[![Downloads](https://img.shields.io/npm/dm/react-icon.svg)](https://www.npmjs.com/package/react-icon)
+[![Build Status](https://circleci.com/gh/nkt/react-icon.svg?style=svg)](https://circleci.com/gh/nkt/react-icon)
 
 Simple component for icons in your React app.
 
@@ -8,17 +7,17 @@ Installation
 ------------
 
 ```
-npm install react-icon
+npm install --save react-icon
 ```
 
 Usage
 -----
 
-```jsx
-var React = require('react');
-var Icon = require('react-icon');
+```js
+const React = require('react');
+const Icon = require('react-icon');
 
-var StarCounter = React.createClass({
+const StarCounter = React.createClass({
   render() {
     return (
       <div>
@@ -28,13 +27,15 @@ var StarCounter = React.createClass({
     );
   }
 });
+
+module.exports = StarCounter;
 ```
 
 By default component uses `fa` as class prefix (`fa fa-star`).
 This behavior customizable:
 
 ```js
-var Icon = require('react-icon');
+const Icon = require('react-icon');
 
 Icon.setDefaultFontPrefix('glyphicon') // glyphicon glyphicon-star
 ```
